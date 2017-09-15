@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Record" representedClassName="Record" syncable="YES" codeGenerationType="class">
+        <attribute name="decibel" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lat" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="long" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Setting" representedClassName="Setting" syncable="YES" codeGenerationType="class">
+        <attribute name="databaseCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="deviceType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="points" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Setting" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="Record" positionX="-54" positionY="18" width="128" height="105"/>
+    </elements>
 </model>
