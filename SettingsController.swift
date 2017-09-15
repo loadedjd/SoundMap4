@@ -26,7 +26,7 @@ class SettingsController: UITableViewController {
         self.addButton.tintColor = UIColor.white
     }
     
-    func presentNewRecordController() {
+    @objc func presentNewRecordController() {
         let nav = UINavigationController(rootViewController: NewRecordController())
         self.present(nav, animated: true, completion: nil)
     }

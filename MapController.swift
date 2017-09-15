@@ -73,11 +73,11 @@ class MapController: UIViewController {
         
     }
     
-    func centerButtonWasPushed() {
+    @objc func centerButtonWasPushed() {
         self.setMapCenter(longitude: -82.9988889 , latitude: 39.9611111)
     }
     
-    func addAnnotations() {
+    @objc func addAnnotations() {
         let entries = FirebaseManager.sharedInstance.retrieveAllData()
         
         if !(self.addedAnnotations.isEmpty) {
@@ -104,7 +104,7 @@ class MapController: UIViewController {
     }
 
     
-    func presentNewRecordController() {
+    @objc func presentNewRecordController() {
         let nav = UINavigationController(rootViewController: NewRecordController())
         self.present(nav, animated: true, completion: nil)
     }

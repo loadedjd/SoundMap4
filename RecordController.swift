@@ -31,11 +31,11 @@ class RecordController: UICollectionViewController, UICollectionViewDelegateFlow
         self.navigationItem.rightBarButtonItem = self.addButton
     }
     
-    func reloadData() {
+    @objc func reloadData() {
         self.collectionView?.reloadData()
     }
     
-    func presentNewRecordController() {
+    @objc func presentNewRecordController() {
         let nav = UINavigationController(rootViewController: NewRecordController())
         self.present(nav, animated: true, completion: nil)
     }

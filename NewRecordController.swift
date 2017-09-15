@@ -62,19 +62,19 @@ class NewRecordController: UIViewController {
         self.decibelLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
     }
     
-    func doneButtonPressed() {
+    @objc func doneButtonPressed() {
         self.dismiss(animated: true, completion: nil)
 
     }
     
-    func recordButtonPressed() {
+    @objc func recordButtonPressed() {
         self.doneBarButton.isEnabled = false
         self.recordButton.isEnabled = false
         self.audioManager.startRecording()
     }
     
     
-    func updateView() {
+    @objc func updateView() {
         guard let sample = self.audioManager.samples.last else { return }
         var color: UIColor
         
@@ -95,7 +95,7 @@ class NewRecordController: UIViewController {
         self.decibelLabel.text = "\(sample) dB"
     }
     
-    func recordingDone() {
+    @objc func recordingDone() {
         self.dismiss(animated: true, completion: nil)
         let record = constructRecord()
         FirebaseManager.sharedInstance.postDataToDatabase(recordData: record)
