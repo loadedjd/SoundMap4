@@ -10,7 +10,7 @@ import UIKit
 
 class SettingsCell: UITableViewCell {
     
-    private var databaseLabel: UILabel?
+    var databaseLabel: UILabel?
     private var cellImage: UIImageView?
 
     override func awakeFromNib() {
@@ -24,7 +24,6 @@ class SettingsCell: UITableViewCell {
         
         
         self.databaseLabel = UILabel()
-        self.databaseLabel?.text = ""
         self.databaseLabel?.font = UIFont.systemFont(ofSize: 15)
         self.databaseLabel?.textColor = UIColor.gray
         self.databaseLabel?.translatesAutoresizingMaskIntoConstraints = false

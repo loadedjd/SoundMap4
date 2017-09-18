@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>630018664151-8oob4o9sqv5jce1dn2v2453e4c37kkb8.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.630018664151-8oob4o9sqv5jce1dn2v2453e4c37kkb8</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCaW9PyotTE-284IAKPgocIJc9TQ779VK0</string>
+	<key>GCM_SENDER_ID</key>
+	<string>630018664151</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.SoundMap4.ios</string>
+	<key>PROJECT_ID</key>
+	<string>fethapp</string>
+	<key>STORAGE_BUCKET</key>
+	<string>fethapp.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:630018664151:ios:f949a7a30fb3e5c7</string>
+	<key>DATABASE_URL</key>
+	<string>https://fethapp.firebaseio.com</string>
+</dict>
+</plist>

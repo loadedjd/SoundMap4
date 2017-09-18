@@ -83,7 +83,7 @@ class NewRecordController: UIViewController {
             color = UIColor.green
         }
         
-        if (Double(sample) >= 60 && Double(sample) < 80 ) {
+       else if (Double(sample) >= 60 && Double(sample) < 80 ) {
             color = UIColor.yellow
         }
         
@@ -99,11 +99,12 @@ class NewRecordController: UIViewController {
         self.dismiss(animated: true, completion: nil)
         let record = constructRecord()
         FirebaseManager.sharedInstance.postDataToDatabase(recordData: record)
+        CoreDataManager.sharedInstance.updatePoints()
     }
     
     func constructRecord() -> DataRecord {
-        let lat = String(describing: (LocationManager.sharedInstance.currentLocation?.coordinate.latitude)!).truncate(length: 6)
-        let long = String(describing: (LocationManager.sharedInstance.currentLocation?.coordinate.longitude)!).truncate(length: 6)
+        let lat = String(describing: (LocationManager.sharedInstance.currentLocation?.coordinate.latitude)!)
+        let long = String(describing: (LocationManager.sharedInstance.currentLocation?.coordinate.longitude)!)
         let decibelAverage = String(describing: self.audioManager.logAverage!).truncate(length: 5)
         
         timeDate.updateDate()

@@ -9,12 +9,7 @@
 import Foundation
 import UIKit
 
-struct Colors {
-    static var navigationBlue = UIColor(colorLiteralRed: 50/255, green: 204/255, blue: 255/255, alpha: 1)
-    static var tacoPurple = UIColor(colorLiteralRed: 153/255, green: 0/255, blue: 204/255, alpha: 1)
-    static var navigationWhite = UIColor.white
-    static var textBlack = UIColor.black
-}
+
 
 enum Sides {
     case left

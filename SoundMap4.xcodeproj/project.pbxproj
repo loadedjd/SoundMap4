@@ -12,7 +12,6 @@
 		2489B64B1F6AC7AA00FD0175 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2489B64A1F6AC7AA00FD0175 /* Constants.swift */; };
 		2489B64D1F6AFDD800FD0175 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2489B64C1F6AFDD800FD0175 /* SettingsCell.swift */; };
 		2489B64F1F6B08FA00FD0175 /* DeviceSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2489B64E1F6B08FA00FD0175 /* DeviceSettingsController.swift */; };
-		2489B6511F6B308F00FD0175 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2489B6501F6B308F00FD0175 /* CoreDataManager.swift */; };
 		248C230B1F68CF4D00332F3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248C230A1F68CF4D00332F3E /* AppDelegate.swift */; };
 		248C230D1F68CF4D00332F3E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248C230C1F68CF4D00332F3E /* ViewController.swift */; };
 		248C23101F68CF4D00332F3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 248C230E1F68CF4D00332F3E /* Main.storyboard */; };
@@ -26,7 +25,8 @@
 		248C232A1F68D4AB00332F3E /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248C23291F68D4AB00332F3E /* SettingsController.swift */; };
 		248F4A1E1F68EC86006F7C35 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248F4A1D1F68EC86006F7C35 /* FeedCell.swift */; };
 		248F4A201F68EF83006F7C35 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248F4A1F1F68EF83006F7C35 /* FirebaseManager.swift */; };
-		24ED74341F68F5E2005B6391 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24ED74331F68F5E2005B6391 /* GoogleService-Info.plist */; };
+		24D4B5D51F6F2F1E005F7C80 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24E26E441F6F2DC800FEBCE3 /* GoogleService-Info.plist */; };
+		24D4B5D71F6F2FD0005F7C80 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D4B5D61F6F2FD0005F7C80 /* CoreDataManager.swift */; };
 		24F5A9A41F698068000FBFFC /* NewRecordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F5A9A31F698068000FBFFC /* NewRecordController.swift */; };
 		24F5A9A61F69A564000FBFFC /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F5A9A51F69A564000FBFFC /* Record.swift */; };
 		773DD6CAB4C23787D6FEA68A /* Pods_SoundMap4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FE7F1916A7AA9284064C745 /* Pods_SoundMap4.framework */; };
@@ -38,7 +38,6 @@
 		2489B64A1F6AC7AA00FD0175 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2489B64C1F6AFDD800FD0175 /* SettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		2489B64E1F6B08FA00FD0175 /* DeviceSettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceSettingsController.swift; sourceTree = "<group>"; };
-		2489B6501F6B308F00FD0175 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		248C23071F68CF4D00332F3E /* SoundMap4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoundMap4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		248C230A1F68CF4D00332F3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		248C230C1F68CF4D00332F3E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,7 +53,8 @@
 		248C23291F68D4AB00332F3E /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		248F4A1D1F68EC86006F7C35 /* FeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		248F4A1F1F68EF83006F7C35 /* FirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
-		24ED74331F68F5E2005B6391 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		24D4B5D61F6F2FD0005F7C80 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		24E26E441F6F2DC800FEBCE3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		24F5A9A31F698068000FBFFC /* NewRecordController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewRecordController.swift; sourceTree = "<group>"; };
 		24F5A9A51F69A564000FBFFC /* Record.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		4BD7BA9E8CF8DAE3D3E39880 /* Pods-SoundMap4.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundMap4.release.xcconfig"; path = "Pods/Target Support Files/Pods-SoundMap4/Pods-SoundMap4.release.xcconfig"; sourceTree = "<group>"; };
@@ -111,8 +111,8 @@
 				248C230C1F68CF4D00332F3E /* ViewController.swift */,
 				248C230E1F68CF4D00332F3E /* Main.storyboard */,
 				248C23141F68CF4D00332F3E /* Assets.xcassets */,
-				24ED74331F68F5E2005B6391 /* GoogleService-Info.plist */,
 				248C23161F68CF4D00332F3E /* LaunchScreen.storyboard */,
+				24E26E441F6F2DC800FEBCE3 /* GoogleService-Info.plist */,
 				248C23191F68CF4D00332F3E /* Info.plist */,
 				248C23111F68CF4D00332F3E /* SoundMap4.xcdatamodeld */,
 			);
@@ -148,7 +148,7 @@
 				2489B6461F6AB42300FD0175 /* AudioManager.swift */,
 				248F4A1F1F68EF83006F7C35 /* FirebaseManager.swift */,
 				24F5A9A51F69A564000FBFFC /* Record.swift */,
-				2489B6501F6B308F00FD0175 /* CoreDataManager.swift */,
+				24D4B5D61F6F2FD0005F7C80 /* CoreDataManager.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -201,7 +201,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Jared Williams";
 				TargetAttributes = {
 					248C23061F68CF4D00332F3E = {
@@ -236,7 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				248C23181F68CF4D00332F3E /* LaunchScreen.storyboard in Resources */,
-				24ED74341F68F5E2005B6391 /* GoogleService-Info.plist in Resources */,
+				24D4B5D51F6F2F1E005F7C80 /* GoogleService-Info.plist in Resources */,
 				248C23151F68CF4D00332F3E /* Assets.xcassets in Resources */,
 				248C23101F68CF4D00332F3E /* Main.storyboard in Resources */,
 			);
@@ -303,7 +303,7 @@
 				248F4A201F68EF83006F7C35 /* FirebaseManager.swift in Sources */,
 				248C23281F68D38000332F3E /* MapController.swift in Sources */,
 				2489B64F1F6B08FA00FD0175 /* DeviceSettingsController.swift in Sources */,
-				2489B6511F6B308F00FD0175 /* CoreDataManager.swift in Sources */,
+				24D4B5D71F6F2FD0005F7C80 /* CoreDataManager.swift in Sources */,
 				2489B64B1F6AC7AA00FD0175 /* Constants.swift in Sources */,
 				248C23131F68CF4D00332F3E /* SoundMap4.xcdatamodeld in Sources */,
 				248C230D1F68CF4D00332F3E /* ViewController.swift in Sources */,
@@ -350,7 +350,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -358,7 +360,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -387,6 +393,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -401,7 +408,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -409,7 +418,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -430,6 +443,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -443,7 +457,7 @@
 				DEVELOPMENT_TEAM = 8SR3MG6VY6;
 				INFOPLIST_FILE = SoundMap4/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Jared.SoundMap4;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SoundMap4.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
@@ -458,7 +472,7 @@
 				DEVELOPMENT_TEAM = 8SR3MG6VY6;
 				INFOPLIST_FILE = SoundMap4/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Jared.SoundMap4;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SoundMap4.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;

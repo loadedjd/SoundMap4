@@ -84,8 +84,8 @@ class RecordController: UICollectionViewController, UICollectionViewDelegateFlow
         let entry = FirebaseManager.sharedInstance.retrieveDataRow(row: indexPath.row)
         guard let decibel = entry["Decibels"] else {return setupCell(decibelString: "", locationString: "", timeString: "", indexpPath: indexPath)}
         guard let time = entry["time"] else {return setupCell(decibelString: "", locationString: "", timeString: "", indexpPath: indexPath)}
-        guard let lat = entry["Lat"] else {return setupCell(decibelString: "", locationString: "", timeString: "", indexpPath: indexPath)}
-        guard let long = entry["Long"] else {return setupCell(decibelString: "", locationString: "", timeString: "", indexpPath: indexPath)}
+        guard let lat = entry["Lat"]?.truncate(length: 6) else {return setupCell(decibelString: "", locationString: "", timeString: "", indexpPath: indexPath)}
+        guard let long = entry["Long"]?.truncate(length: 6) else {return setupCell(decibelString: "", locationString: "", timeString: "", indexpPath: indexPath)}
         
         let location = "\(lat) N \(long) W"
         let cell = setupCell(decibelString: decibel, locationString: location, timeString: time, indexpPath: indexPath)
