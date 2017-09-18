@@ -27,6 +27,7 @@
 		248F4A201F68EF83006F7C35 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248F4A1F1F68EF83006F7C35 /* FirebaseManager.swift */; };
 		24D4B5D51F6F2F1E005F7C80 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24E26E441F6F2DC800FEBCE3 /* GoogleService-Info.plist */; };
 		24D4B5D71F6F2FD0005F7C80 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D4B5D61F6F2FD0005F7C80 /* CoreDataManager.swift */; };
+		24DCB5391F705CBC00DF3A64 /* PointController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DCB5381F705CBC00DF3A64 /* PointController.swift */; };
 		24F5A9A41F698068000FBFFC /* NewRecordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F5A9A31F698068000FBFFC /* NewRecordController.swift */; };
 		24F5A9A61F69A564000FBFFC /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F5A9A51F69A564000FBFFC /* Record.swift */; };
 		773DD6CAB4C23787D6FEA68A /* Pods_SoundMap4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FE7F1916A7AA9284064C745 /* Pods_SoundMap4.framework */; };
@@ -54,6 +55,7 @@
 		248F4A1D1F68EC86006F7C35 /* FeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		248F4A1F1F68EF83006F7C35 /* FirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		24D4B5D61F6F2FD0005F7C80 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		24DCB5381F705CBC00DF3A64 /* PointController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointController.swift; sourceTree = "<group>"; };
 		24E26E441F6F2DC800FEBCE3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		24F5A9A31F698068000FBFFC /* NewRecordController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewRecordController.swift; sourceTree = "<group>"; };
 		24F5A9A51F69A564000FBFFC /* Record.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				248C23291F68D4AB00332F3E /* SettingsController.swift */,
 				24F5A9A31F698068000FBFFC /* NewRecordController.swift */,
 				2489B64E1F6B08FA00FD0175 /* DeviceSettingsController.swift */,
+				24DCB5381F705CBC00DF3A64 /* PointController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 				24D4B5D71F6F2FD0005F7C80 /* CoreDataManager.swift in Sources */,
 				2489B64B1F6AC7AA00FD0175 /* Constants.swift in Sources */,
 				248C23131F68CF4D00332F3E /* SoundMap4.xcdatamodeld in Sources */,
+				24DCB5391F705CBC00DF3A64 /* PointController.swift in Sources */,
 				248C230D1F68CF4D00332F3E /* ViewController.swift in Sources */,
 				248C23231F68D12400332F3E /* RecordController.swift in Sources */,
 				24F5A9A41F698068000FBFFC /* NewRecordController.swift in Sources */,

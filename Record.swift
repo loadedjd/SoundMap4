@@ -15,12 +15,14 @@ class DataRecord {
     var time: String!
     var lat: String!
     var long: String!
+    var deviceType: String!
     
     
-    init(decibel: String, lat: String, long: String, time: String) {
+    init(decibel: String, lat: String, long: String, time: String, deviceType: String) {
         self.decibel = decibel
         self.lat = lat
         self.long = long
         self.time = time
+        self.deviceType = deviceType
     }
 }

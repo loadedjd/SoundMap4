@@ -36,6 +36,7 @@ class NewRecordController: UIViewController {
         
         
         self.doneBarButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.doneButtonPressed))
+        self.doneBarButton.tintColor = UIColor.white
         
         self.recordButton = UIButton()
         self.recordButton.setBackgroundImage(#imageLiteral(resourceName: "Rectangle"), for: .normal)
@@ -48,6 +49,8 @@ class NewRecordController: UIViewController {
         self.navigationItem.rightBarButtonItem = self.doneBarButton
         
         self.navigationController?.navigationBar.topItem?.title = "New Record"
+        self.navigationController?.navigationBar.barTintColor = UIColor.red
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey(rawValue: NSAttributedStringKey.foregroundColor.rawValue): UIColor.white]
         self.view.backgroundColor = UIColor.white
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateView), name: NSNotification.Name(rawValue: "updateAudio"), object: nil)
@@ -100,17 +103,23 @@ class NewRecordController: UIViewController {
         let record = constructRecord()
         FirebaseManager.sharedInstance.postDataToDatabase(recordData: record)
         CoreDataManager.sharedInstance.updatePoints()
+        CoreDataManager.sharedInstance.getData()
     }
     
     func constructRecord() -> DataRecord {
         let lat = String(describing: (LocationManager.sharedInstance.currentLocation?.coordinate.latitude)!)
         let long = String(describing: (LocationManager.sharedInstance.currentLocation?.coordinate.longitude)!)
         let decibelAverage = String(describing: self.audioManager.logAverage!).truncate(length: 5)
+        var deviceType = ""
+        
+        if (CoreDataManager.sharedInstance.getDataCount() > 0) {
+            deviceType = CoreDataManager.sharedInstance.retrieveSettingData().deviceType! // Should never return nil
+        }
         
         timeDate.updateDate()
         let time = timeDate.timeStamp
         
-        let record = DataRecord(decibel: decibelAverage, lat: lat, long: long, time: time)
+        let record = DataRecord(decibel: decibelAverage, lat: lat, long: long, time: time, deviceType: deviceType)
         return record
         
         

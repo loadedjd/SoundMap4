@@ -86,6 +86,10 @@ class CoreDataManager {
     func retrieveSettingData() -> Setting {
         return settings[0]
     }
+    
+    func getDataCount() -> Int {
+        return settings.count
+    }
         
     
     

@@ -42,21 +42,42 @@ class SettingsController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 2
     }
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SettingsCell
+        
+        if (indexPath.row == 1) {
+            cell.setupView()
+            cell.setCellText(text: "Device Settings")
+            cell.setCellImage(image: #imageLiteral(resourceName: "settings"))
+        }
+        
+        else {
+            cell.setupView()
+            cell.setCellText(text: "Me")
+            cell.setCellImage(image: #imageLiteral(resourceName: "person"))
+        }
 
-        cell.databaseLabel?.text = "Device Settings"
+        
 
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let nav = UINavigationController(rootViewController: DeviceSettingsController())
-        self.present(nav, animated: true, completion: nil)
+        
+        if indexPath.row == 1 {
+            let nav = UINavigationController(rootViewController: DeviceSettingsController())
+            self.present(nav, animated: true, completion: nil)
+        }
+        
+        else {
+            let nav = UINavigationController(rootViewController: PointController())
+            self.present(nav, animated: true, completion: nil)
+        }
+        
     }
 
 

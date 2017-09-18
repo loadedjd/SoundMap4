@@ -41,6 +41,7 @@ class FirebaseManager {
         dataDictionary["time"] = recordData.time
         dataDictionary["Lat"] = recordData.lat
         dataDictionary["Long"] = recordData.long
+        dataDictionary["Device"] = recordData.deviceType
         
         database.childByAutoId().setValue(dataDictionary)
     }

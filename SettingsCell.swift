@@ -20,20 +20,23 @@ class SettingsCell: UITableViewCell {
         
     }
     
+    
     func setupView() {
         
         
         self.databaseLabel = UILabel()
-        self.databaseLabel?.font = UIFont.systemFont(ofSize: 15)
+        self.databaseLabel?.font = UIFont.systemFont(ofSize: 20)
         self.databaseLabel?.textColor = UIColor.gray
         self.databaseLabel?.translatesAutoresizingMaskIntoConstraints = false
         
-        self.cellImage = UIImageView(image: #imageLiteral(resourceName: "if_settings_115801"))
+        self.cellImage = UIImageView()
         self.cellImage?.clipsToBounds = true
         self.cellImage?.translatesAutoresizingMaskIntoConstraints = false
         
         self.contentView.addSubview(self.cellImage!)
         self.contentView.addSubview(self.databaseLabel!)
+        
+        self.setupConstraints()
         
         
     }
@@ -50,13 +53,14 @@ class SettingsCell: UITableViewCell {
         self.databaseLabel?.text = text
     }
     
+    func setCellImage(image: UIImage) {
+        self.cellImage?.image = image
+    }
+    
     
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        self.setupView()
-        self.setupConstraints()
     }
 
 }
