@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseManager.sharedInstance.loadDataFromDatabase()
         LocationManager.sharedInstance.setup()
         CoreDataManager.sharedInstance.getData()
+        CoreDataManager.sharedInstance.getRecordData()
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = MainTabBar()

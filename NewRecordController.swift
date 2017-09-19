@@ -101,9 +101,20 @@ class NewRecordController: UIViewController {
     @objc func recordingDone() {
         self.dismiss(animated: true, completion: nil)
         let record = constructRecord()
-        FirebaseManager.sharedInstance.postDataToDatabase(recordData: record)
-        CoreDataManager.sharedInstance.updatePoints()
-        CoreDataManager.sharedInstance.getData()
+        
+        if CoreDataManager.sharedInstance.retrieveSettingData().databaseCode == "BUCKS" {
+            FirebaseManager.sharedInstance.postDataToDatabase(recordData: record)
+            CoreDataManager.sharedInstance.updatePoints()
+            CoreDataManager.sharedInstance.getData()
+        }
+        
+        else {
+            CoreDataManager.sharedInstance.saveRecordData(decibel: record.decibel, lat: record.lat, long: record.long, time: record.time)
+            CoreDataManager.sharedInstance.getData()
+            NotificationCenter.default.post(Notification.init(name: Notification.Name(rawValue: "reloadData")))
+        }
+        
+        
     }
     
     func constructRecord() -> DataRecord {

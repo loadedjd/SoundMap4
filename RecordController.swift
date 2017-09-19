@@ -16,6 +16,8 @@ class RecordController: UICollectionViewController, UICollectionViewDelegateFlow
 
 
     override func viewDidLoad() {
+        
+        
         super.viewDidLoad()
         self.collectionView!.register(FeedCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         self.setupView()
@@ -76,22 +78,47 @@ class RecordController: UICollectionViewController, UICollectionViewDelegateFlow
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return FirebaseManager.sharedInstance.retrieveLoadedDataLength()
+        
+        if CoreDataManager.sharedInstance.retrieveSettingData().databaseCode == "BUCKS" {
+            return FirebaseManager.sharedInstance.retrieveLoadedDataLength()
+        }
+        
+        else {
+            return CoreDataManager.sharedInstance.getRecordCount()
+        }
+        
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let entry = FirebaseManager.sharedInstance.retrieveDataRow(row: indexPath.row)
-        guard let decibel = entry["Decibels"] else {return setupCell(decibelString: "", locationString: "", timeString: "", indexpPath: indexPath)}
-        guard let time = entry["time"] else {return setupCell(decibelString: "", locationString: "", timeString: "", indexpPath: indexPath)}
-        guard let lat = entry["Lat"]?.truncate(length: 6) else {return setupCell(decibelString: "", locationString: "", timeString: "", indexpPath: indexPath)}
-        guard let long = entry["Long"]?.truncate(length: 6) else {return setupCell(decibelString: "", locationString: "", timeString: "", indexpPath: indexPath)}
+        var cell: UICollectionViewCell!
         
-        let location = "\(lat) N \(long) W"
-        let cell = setupCell(decibelString: decibel, locationString: location, timeString: time, indexpPath: indexPath)
-    
-    
-    
+        if let databaseCode = CoreDataManager.sharedInstance.retrieveSettingData().databaseCode {
+            if (databaseCode == "BUCKS") {
+                
+                let entry = FirebaseManager.sharedInstance.retrieveDataRow(row: indexPath.row)
+                guard let decibel = entry["Decibels"] else {return setupCell(decibelString: "", locationString: "", timeString: "", indexpPath: indexPath)}
+                guard let time = entry["time"] else {return setupCell(decibelString: "", locationString: "", timeString: "", indexpPath: indexPath)}
+                guard let lat = entry["Lat"]?.truncate(length: 6) else {return setupCell(decibelString: "", locationString: "", timeString: "", indexpPath: indexPath)}
+                guard let long = entry["Long"]?.truncate(length: 6) else {return setupCell(decibelString: "", locationString: "", timeString: "", indexpPath: indexPath)}
+                
+                let location = "\(lat) N \(long) W"
+                cell = setupCell(decibelString: decibel, locationString: location, timeString: time, indexpPath: indexPath)
+            }
+            
+            
+            else {
+                let entry = CoreDataManager.sharedInstance.retrieveRecord(row: indexPath.row)
+                guard let decibel = entry.decibel else {return setupCell(decibelString: "", locationString: "", timeString: "", indexpPath: indexPath)}
+                guard let time = entry.time else {return setupCell(decibelString: "", locationString: "", timeString: "", indexpPath: indexPath)}
+                guard let lat = entry.lat?.truncate(length: 6) else {return setupCell(decibelString: "", locationString: "", timeString: "", indexpPath: indexPath)}
+                guard let long = entry.long?.truncate(length: 6) else {return setupCell(decibelString: "", locationString: "", timeString: "", indexpPath: indexPath)}
+                
+                let location = "\(lat) N \(long) W"
+                cell = setupCell(decibelString: decibel, locationString: location, timeString: time, indexpPath: indexPath)
+                
+            }
+        }
         return cell
     }
     
