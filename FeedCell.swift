@@ -89,10 +89,4 @@ class FeedCell: UICollectionViewCell {
     func setColorView(color: UIColor) {
         self.colorView?.backgroundColor = color
     }
-    
-    
-    
-    
-    
-    
 }

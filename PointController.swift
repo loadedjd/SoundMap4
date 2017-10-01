@@ -31,7 +31,10 @@ class PointController: UIViewController {
         self.navigationItem.rightBarButtonItem = doneBarButton
         
         self.pointsLabel = UILabel()
-        self.pointsLabel.text = "0 Points"
+        
+        if CoreDataManager.sharedInstance.retrieveSettingData().databaseCode == "BUCKS" {
+            self.pointsLabel.text = "\(CoreDataManager.sharedInstance.retrieveSettingData().points) Points"
+        }
         self.pointsLabel.font = UIFont.systemFont(ofSize: 50)
         self.pointsLabel.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(self.pointsLabel)
@@ -42,15 +45,6 @@ class PointController: UIViewController {
     func setupConstraints() {
         self.pointsLabel.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
         self.pointsLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-    }
-    
-    func displayPointValue() {
-        var points:Int32 = 0
-        
-        if CoreDataManager.sharedInstance.getDataCount() > 0 {
-            points = CoreDataManager.sharedInstance.retrieveSettingData().points
-            self.pointsLabel.text = "\(points) Points"
-        }
     }
     
     @objc func doneButtonPressed() {

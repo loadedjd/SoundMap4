@@ -106,6 +106,10 @@ class NewRecordController: UIViewController {
             FirebaseManager.sharedInstance.postDataToDatabase(recordData: record)
             CoreDataManager.sharedInstance.updatePoints()
             CoreDataManager.sharedInstance.getData()
+            
+            CoreDataManager.sharedInstance.saveRecordData(decibel: record.decibel, lat: record.lat, long: record.long, time: record.time)
+            CoreDataManager.sharedInstance.getData()
+            NotificationCenter.default.post(Notification.init(name: Notification.Name(rawValue: "reloadData")))
         }
         
         else {

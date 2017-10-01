@@ -85,7 +85,16 @@ class CoreDataManager {
     }
     
     func retrieveSettingData() -> Setting {
-        return settings[0]
+        
+        if settings.count > 0 {
+            return settings[0]
+        }
+        
+        else {
+            let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+            return Setting(context: context)
+        }
+        
     }
     
     func getDataCount() -> Int {
@@ -121,6 +130,10 @@ class CoreDataManager {
     
     func retrieveRecord(row: Int) -> Record {
         return records[row]
+    }
+    
+    func getAllRecords() -> [Record] {
+        return records
     }
     
     func getRecordCount() -> Int {

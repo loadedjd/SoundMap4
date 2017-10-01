@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 
 
-class MapController: UIViewController {
+class MapController: UIViewController, MKMapViewDelegate {
     
     private var mapView: MKMapView!
     private var addButton: UIBarButtonItem!
@@ -78,30 +78,72 @@ class MapController: UIViewController {
     }
     
     @objc func addAnnotations() {
-        let entries = FirebaseManager.sharedInstance.retrieveAllData()
         
-        if !(self.addedAnnotations.isEmpty) {
-            self.addedAnnotations.removeAll()
+    
+        
+        if CoreDataManager.sharedInstance.retrieveSettingData().databaseCode == "BUCKS" {
+            let entries = FirebaseManager.sharedInstance.retrieveAllData()
+            
+            if !(self.addedAnnotations.isEmpty) {
+                self.mapView.removeAnnotations(self.addedAnnotations)
+                self.addedAnnotations.removeAll()
+            }
+            
+            print(entries)
+            for entry in entries {
+                guard let decibels = entry["Decibels"] else {return }
+                guard let lat = entry["Lat"]  else {return }
+                guard let long = entry["Long"]  else {return}
+                
+                
+                guard let latDegrees = CLLocationDegrees(lat) else {return }
+                guard let longDegrees = CLLocationDegrees(long) else {return}
+                
+                
+                let annotation = MKPointAnnotation()
+                annotation.coordinate = CLLocationCoordinate2DMake(latDegrees, longDegrees)
+                annotation.title = decibels
+                
+                
+                self.addedAnnotations.append(annotation)
+                self.mapView.addAnnotation(annotation)
+                
+            }
         }
         
-        for entry in entries {
-            guard let decibels = entry["Decibels"] else {return }
-            guard let lat = entry["Lat"] else {return }
-            guard let long = entry["Long"] else {return}
+        else {
+            let entries = CoreDataManager.sharedInstance.getAllRecords()
             
-            guard let latDegrees = CLLocationDegrees(lat) else {return }
-            guard let longDegrees = CLLocationDegrees(long) else {return}
+            if !(self.addedAnnotations.isEmpty) {
+                self.addedAnnotations.removeAll()
+            }
             
-            let annotation = MKPointAnnotation()
-            annotation.coordinate = CLLocationCoordinate2DMake(latDegrees, longDegrees)
-            annotation.title = decibels
-            
-            
-            self.addedAnnotations.append(annotation)
-            self.mapView.addAnnotation(annotation)
-           
+            for entry in entries {
+                guard let decibels = entry.decibel else {return }
+                guard let lat = entry.lat else {return }
+                guard let long = entry.long else {return}
+                
+                guard let latDegrees = CLLocationDegrees(lat) else {return }
+                guard let longDegrees = CLLocationDegrees(long) else {return}
+                
+                let annotation = MKPointAnnotation()
+                annotation.coordinate = CLLocationCoordinate2DMake(latDegrees, longDegrees)
+                annotation.title = decibels
+                
+                
+                self.addedAnnotations.append(annotation)
+                self.mapView.addAnnotation(annotation)
+                
+            }
         }
+        
     }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        
+    }
+    
+    
 
     
     @objc func presentNewRecordController() {
