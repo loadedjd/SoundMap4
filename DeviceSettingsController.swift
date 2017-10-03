@@ -15,6 +15,7 @@ class DeviceSettingsController: UIViewController, UIPickerViewDataSource, UIPick
     private var devices: [String]!
     private var saveButton: UIButton!
     private var tapRecognizer: UITapGestureRecognizer!
+    private var doneButton: UIBarButtonItem!
     
 
     override func viewDidLoad() {
@@ -35,6 +36,8 @@ class DeviceSettingsController: UIViewController, UIPickerViewDataSource, UIPick
         self.view.addSubview(self.saveButton)
         self.view.addSubview(self.databaseField)
         self.navigationController?.navigationBar.topItem?.title = "Device Settings"
+        self.navigationController?.navigationBar.barTintColor = UIColor.red
+
         
         self.devicePicker.delegate = self
         self.devicePicker.translatesAutoresizingMaskIntoConstraints = false
@@ -48,6 +51,18 @@ class DeviceSettingsController: UIViewController, UIPickerViewDataSource, UIPick
         self.databaseField.delegate = self
         self.databaseField.translatesAutoresizingMaskIntoConstraints = false
         self.databaseField.textAlignment = .center
+        if let code = CoreDataManager.sharedInstance.retrieveSettingData().databaseCode {
+            self.databaseField.text = code
+        }
+        
+        if let device = CoreDataManager.sharedInstance.retrieveSettingData().deviceType {
+           var index = self.devices.index(of: device)
+            self.devicePicker.selectRow(index!, inComponent: 0, animated: true)
+        }
+        
+        self.doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.doneButtonWasPressed))
+        self.doneButton.tintColor = UIColor.white
+        self.navigationItem.rightBarButtonItem = self.doneButton
     }
     
     func setupConstraints() {
@@ -64,6 +79,21 @@ class DeviceSettingsController: UIViewController, UIPickerViewDataSource, UIPick
     
     
         CoreDataManager.sharedInstance.updateSettingData(databaseCode: self.databaseField.text!, deviceType: self.devices[self.devicePicker.selectedRow(inComponent: 0)])
+        self.dismiss(animated: true, completion: nil)
+    
+        if CoreDataManager.sharedInstance.retrieveSettingData().databaseCode == "BUCKS" {
+            FirebaseManager.sharedInstance.getData(path: "") {
+                NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "reloadData")))
+            }
+        }
+    
+        else {
+            NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "reloadData")))
+        }
+    
+    }
+    
+    @objc func doneButtonWasPressed() {
         self.dismiss(animated: true, completion: nil)
     }
     

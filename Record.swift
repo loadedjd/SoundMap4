@@ -25,4 +25,8 @@ class DataRecord {
         self.time = time
         self.deviceType = deviceType
     }
+    
+    init() {
+        
+    }
 }

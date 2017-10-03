@@ -23,7 +23,7 @@ class MainTabBar: UITabBarController {
     func setupView() {
                 
         let recordController = RecordController(collectionViewLayout: UICollectionViewFlowLayout())
-        let recordNavigationController = Helper.createNavigationBar(viewContoller: recordController, title: "Records", barColor: UIColor.red, tabBarTitle:
+        let recordNavigationController = Helper.createNavigationBar(viewContoller: recordController, title: "My Records", barColor: UIColor.red, tabBarTitle:
             "Records")
         recordNavigationController.tabBarItem.image = #imageLiteral(resourceName: "recordsSymbol5")
         recordNavigationController.navigationBar.titleTextAttributes = [NSAttributedStringKey(rawValue: NSAttributedStringKey.foregroundColor.rawValue): UIColor.white]
@@ -36,6 +36,7 @@ class MainTabBar: UITabBarController {
         
         let mapNavigationController = Helper.createNavigationBar(viewContoller: MapController(), title: "Map", barColor: UIColor.red, tabBarTitle: "Map")
         mapNavigationController.tabBarItem.image = #imageLiteral(resourceName: "locationSymbol")
+        mapNavigationController.tabBarItem.badgeColor = UIColor.red
         mapNavigationController.navigationBar.titleTextAttributes = [NSAttributedStringKey(rawValue: NSAttributedStringKey.foregroundColor.rawValue): UIColor.white]
         
         let settingsNavigationController = Helper.createNavigationBar(viewContoller: SettingsController(), title: "Settings", barColor: UIColor.red, tabBarTitle: "Settings")

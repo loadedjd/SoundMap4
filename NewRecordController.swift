@@ -139,6 +139,20 @@ class NewRecordController: UIViewController {
         
         
     }
+    
+    func checkTimeDateAndLocation(time: String) -> Int {
+        
+        let recordedHourString = time.split(separator: ":")[0].split(separator: " ")[3]
+        
+        timeDate.updateDate()
+        let hour = timeDate.hour
+        
+        
+        let recordedHourInt = Int(recordedHourString)
+        
+        return abs(recordedHourInt! - hour)
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -8,32 +8,30 @@
 
 import Foundation
 import Firebase
+import FirebaseDatabase
 
 class FirebaseManager {
     static var sharedInstance = FirebaseManager()
     private var database = Database.database().reference().child("iOS")
-    private var loadedData = [Dictionary<String, String>]()
+    var loadedData: [String: Dictionary<String, String>]?
     
     
-    func loadDataFromDatabase() {
-        database.observe(.value, with: { (snapshot: DataSnapshot) in
-            
-            if (snapshot.hasChildren()) {
-                let temp = snapshot.value as! [String: Dictionary<String, String>]
-                
-                self.clearLoadedData()
-                
-                for dictionary in temp {
-                    self.loadedData.append(dictionary.value)
-                }
-                
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reloadData"), object: nil)
-
-            }
-            
-        })
+    
+    
+    func getData(path: String, completion: (()-> ())?) {
+        var dictionary: [String: Dictionary<String, String>] = [:]
+        
+        self.database.observe(.value) { (snapshot: DataSnapshot) in
+            dictionary = snapshot.value as! [String: Dictionary<String, String>]
+            self.loadedData = dictionary
+            completion?()
+        }
+        
+        
+      
     }
     
+
     func postDataToDatabase(recordData: DataRecord) {
         var dataDictionary = Dictionary<String, String>()
         
@@ -46,20 +44,35 @@ class FirebaseManager {
         database.childByAutoId().setValue(dataDictionary)
     }
     
-    func clearLoadedData() {
-      loadedData.removeAll()
-    }
-    
-    func retrieveDataRow(row: Int) -> Dictionary<String, String>{
-        return loadedData[row]
-    }
-    
-    func retrieveLoadedDataLength() -> Int{
-        return loadedData.count
-    }
-    
-    func retrieveAllData() -> [Dictionary<String, String>] {
-        let data = self.loadedData
-        return data
+    func returnLoadedData() -> [DataRecord] {
+        var returnData:[DataRecord]  = []
+       
+        
+       
+            
+        
+            
+            for data in self.loadedData! {
+                let record = DataRecord()
+                guard let decibel = data.value["Decibels"]  else {return [DataRecord()]}
+                guard let lat = data.value["Lat"]  else {return [DataRecord()]}
+                guard let long = data.value["Long"]  else {return [DataRecord()]}
+                guard let time = data.value["time"]  else {return [DataRecord()]}
+                guard let device = data.value["Device"]  else {return [DataRecord()]}
+                
+                
+                
+                record.decibel = decibel
+                record.lat = lat
+                record.long = long
+                record.time = time
+                record.deviceType = device
+                
+                
+                
+                returnData.append(record)
+        }
+        
+        return returnData
     }
 }

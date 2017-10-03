@@ -20,10 +20,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         FirebaseApp.configure()
-        FirebaseManager.sharedInstance.loadDataFromDatabase()
         LocationManager.sharedInstance.setup()
         CoreDataManager.sharedInstance.getData()
         CoreDataManager.sharedInstance.getRecordData()
+        
+        if CoreDataManager.sharedInstance.retrieveSettingData().databaseCode == "BUCKS" {
+            FirebaseManager.sharedInstance.getData(path: "", completion: nil)
+        }
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = MainTabBar()

@@ -30,6 +30,11 @@ class MapController: UIViewController, MKMapViewDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(self.addAnnotations), name: NSNotification.Name(rawValue: "reloadData"), object: nil)
 
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        self.addAnnotations()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -63,7 +68,6 @@ class MapController: UIViewController, MKMapViewDelegate {
     func makeRegion(center: CLLocationCoordinate2D) -> MKCoordinateRegion{
         
         let region = MKCoordinateRegionMakeWithDistance(center, 30000, 30000)
-        
         return region
     }
     
@@ -82,19 +86,22 @@ class MapController: UIViewController, MKMapViewDelegate {
     
         
         if CoreDataManager.sharedInstance.retrieveSettingData().databaseCode == "BUCKS" {
-            let entries = FirebaseManager.sharedInstance.retrieveAllData()
+            let entries = FirebaseManager.sharedInstance.returnLoadedData()
+            
+            for entry in entries {
+                print(entry.deviceType)
+            }
             
             if !(self.addedAnnotations.isEmpty) {
                 self.mapView.removeAnnotations(self.addedAnnotations)
                 self.addedAnnotations.removeAll()
             }
             
-            print(entries)
             for entry in entries {
-                guard let decibels = entry["Decibels"] else {return }
-                guard let lat = entry["Lat"]  else {return }
-                guard let long = entry["Long"]  else {return}
-                
+                guard let decibels = entry.decibel else {return}
+                guard let lat = entry.lat else {return}
+                guard let long = entry.long else {return }
+                guard let time = entry.time else {return}
                 
                 guard let latDegrees = CLLocationDegrees(lat) else {return }
                 guard let longDegrees = CLLocationDegrees(long) else {return}
@@ -103,6 +110,7 @@ class MapController: UIViewController, MKMapViewDelegate {
                 let annotation = MKPointAnnotation()
                 annotation.coordinate = CLLocationCoordinate2DMake(latDegrees, longDegrees)
                 annotation.title = decibels
+                annotation.subtitle = "Recorded on:  \(time)"
                 
                 
                 self.addedAnnotations.append(annotation)
@@ -115,6 +123,7 @@ class MapController: UIViewController, MKMapViewDelegate {
             let entries = CoreDataManager.sharedInstance.getAllRecords()
             
             if !(self.addedAnnotations.isEmpty) {
+                self.mapView.removeAnnotations(self.addedAnnotations)
                 self.addedAnnotations.removeAll()
             }
             
@@ -122,6 +131,7 @@ class MapController: UIViewController, MKMapViewDelegate {
                 guard let decibels = entry.decibel else {return }
                 guard let lat = entry.lat else {return }
                 guard let long = entry.long else {return}
+                guard let time = entry.time else {return }
                 
                 guard let latDegrees = CLLocationDegrees(lat) else {return }
                 guard let longDegrees = CLLocationDegrees(long) else {return}
@@ -129,7 +139,7 @@ class MapController: UIViewController, MKMapViewDelegate {
                 let annotation = MKPointAnnotation()
                 annotation.coordinate = CLLocationCoordinate2DMake(latDegrees, longDegrees)
                 annotation.title = decibels
-                
+                annotation.subtitle = "Recorded on:  \(time)"
                 
                 self.addedAnnotations.append(annotation)
                 self.mapView.addAnnotation(annotation)
@@ -138,14 +148,6 @@ class MapController: UIViewController, MKMapViewDelegate {
         }
         
     }
-    
-    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        
-    }
-    
-    
-
-    
     @objc func presentNewRecordController() {
         let nav = UINavigationController(rootViewController: NewRecordController())
         self.present(nav, animated: true, completion: nil)
